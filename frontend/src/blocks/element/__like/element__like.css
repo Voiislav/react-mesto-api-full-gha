@@ -1,0 +1,18 @@
+.element__like {
+  background: none;
+  border: none;
+  box-shadow: none;
+  cursor: pointer;
+  background-image: url(../../../../src/images/like_icon.svg);
+  background-repeat: no-repeat;
+  min-width: 22px;
+  min-height: 19px;
+  align-self: center;
+  background-position: center;
+  transition: all 0.2s ease;
+}
+
+.element__like:hover {
+  opacity: 0.5;
+  transition: all 0.2s ease;
+}

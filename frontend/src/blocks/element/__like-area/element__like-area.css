@@ -1,0 +1,7 @@
+.element__like-area {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  align-self: center;
+  max-width: 22px;
+}

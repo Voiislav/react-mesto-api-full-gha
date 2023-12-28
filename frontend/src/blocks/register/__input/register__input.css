@@ -1,0 +1,21 @@
+.register__input {
+  border: none;
+  border-bottom: 1px solid #cccccc;
+  background: none;
+  width: 100%;
+  margin-bottom: 30px;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.21;
+}
+
+.register__input:last-of-type {
+  margin-bottom: 186px;
+}
+
+@media screen and (max-width: 879px) {
+  .register__input:last-of-type {
+    margin-bottom: 173px;
+  }
+}
