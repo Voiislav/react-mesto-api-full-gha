@@ -15,6 +15,8 @@ const bodyParser = require('body-parser');
 
 const mongoose = require('mongoose');
 
+const { requestLogger, errorLogger } = require('./middlewares/logger');
+
 mongoose.connect('mongodb://localhost:27017/mestodb', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -26,6 +28,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(cookieParser());
 
+app.use(requestLogger);
+
 app.post('/signin', login);
 
 app.post('/signup', createUser);
@@ -35,6 +39,8 @@ app.use(auth);
 app.use('/users', require('./routes/users'));
 
 app.use('/cards', require('./routes/cards'));
+
+app.use(errorLogger);
 
 app.use(errors());
 
