@@ -1,0 +1,11 @@
+.popup__container_type_image {
+  display: flex;
+  flex-direction: column;
+  max-width: 75vw;
+  box-sizing: border-box;
+  padding: 0;
+  gap: 10px;
+  background: none;
+  border-radius: 0;
+  position: relative;
+}

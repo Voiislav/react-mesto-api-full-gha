@@ -1,0 +1,19 @@
+.register__login-link {
+  font-size: 14px;
+  line-height: 1.21;
+  font-weight: 400;
+  color: #ffffff;
+  text-decoration: none;
+  transition: 0.4s all ease;
+}
+
+.register__login-link:hover {
+  transition: 0.4s all ease;
+  opacity: 0.6;
+}
+
+@media screen and (max-width: 767px) {
+  .register__login-link {
+    font-size: 14px;
+  }
+}
