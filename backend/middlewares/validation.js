@@ -50,6 +50,20 @@ const getCurrentUserSchema = celebrate({
   }),
 });
 
+const signupSchema = celebrate({
+  [Segments.BODY]: Joi.object().keys({
+    email: Joi.string().email().required(),
+    password: Joi.string().required(),
+  }),
+});
+
+const signinSchema = celebrate({
+  [Segments.BODY]: Joi.object().keys({
+    email: Joi.string().email().required(),
+    password: Joi.string().required(),
+  }),
+});
+
 module.exports = {
   createCardSchema,
   deleteCardSchema,
@@ -59,4 +73,6 @@ module.exports = {
   updateAvatarSchema,
   getUserByIdSchema,
   getCurrentUserSchema,
+  signinSchema,
+  signupSchema,
 };

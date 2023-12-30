@@ -2,18 +2,23 @@ const express = require('express');
 
 const cookieParser = require('cookie-parser');
 
+const { errors } = require('celebrate');
+
+const bodyParser = require('body-parser');
+
+const mongoose = require('mongoose');
+
 const { createUser, login } = require('./controllers/users');
 
 const auth = require('./middlewares/auth');
 
-const { errors } = require('celebrate');
+const { signinSchema, signupSchema } = require('./middlewares/validation');
 
 const { errorHandler } = require('./middlewares/errorHandler');
 
-const app = express();
-const bodyParser = require('body-parser');
+const ErrorNotFound = require('./errors/ErrorNotFound');
 
-const mongoose = require('mongoose');
+const app = express();
 
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
@@ -34,17 +39,21 @@ app.get('/crash-test', () => {
   setTimeout(() => {
     throw new Error('Сервер сейчас упадёт');
   }, 0);
-}); 
+});
 
-app.post('/signin', login);
+app.post('/signin', signinSchema, login);
 
-app.post('/signup', createUser);
+app.post('/signup', signupSchema, createUser);
 
 app.use(auth);
 
 app.use('/users', require('./routes/users'));
 
 app.use('/cards', require('./routes/cards'));
+
+app.use((req, res, next) => {
+  next(new ErrorNotFound('Маршрут не найден'));
+});
 
 app.use(errorLogger);
 
@@ -55,5 +64,4 @@ app.use(errorHandler);
 const { PORT = 3000 } = process.env;
 
 app.listen(PORT, () => {
-  console.log(`Сервер запущен на порту ${PORT}`);
 });

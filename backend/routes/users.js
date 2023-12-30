@@ -9,11 +9,10 @@ const {
   updateProfileSchema,
   updateAvatarSchema,
   getUserByIdSchema,
-  getCurrentUserSchema,
 } = require('../middlewares/validation');
 
 router.get('/', getAllUsers);
-router.get('/me', getCurrentUserSchema, getCurrentUser);
+router.get('/me', getCurrentUser);
 router.get('/:userId', getUserByIdSchema, getUserById);
 router.patch('/me', updateProfileSchema, updateProfile);
 router.patch('/me/avatar', updateAvatarSchema, updateAvatar);

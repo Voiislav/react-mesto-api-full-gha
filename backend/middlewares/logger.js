@@ -1,5 +1,5 @@
 const winston = require('winston');
-const expressWinston = require('express-winston'); 
+const expressWinston = require('express-winston');
 
 // requests logger
 const requestLogger = expressWinston.logger({
@@ -20,4 +20,4 @@ const errorLogger = expressWinston.errorLogger({
 module.exports = {
   requestLogger,
   errorLogger,
-}; 
+};

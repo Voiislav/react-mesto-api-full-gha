@@ -1,4 +1,11 @@
-const { ERROR_NOT_FOUND, ERROR_BAD_REQUEST, SERVER_ERROR, ERROR_UNAUTHORIZED, ERROR_FORBIDDEN, ERROR_CONFLICT } = require('../utils/errorCodes');
+const {
+  ERROR_NOT_FOUND,
+  ERROR_BAD_REQUEST,
+  SERVER_ERROR,
+  ERROR_UNAUTHORIZED,
+  ERROR_FORBIDDEN,
+  ERROR_CONFLICT,
+} = require('../utils/errorCodes');
 
 module.exports.errorHandler = (err, req, res, next) => {
   let statusCode;

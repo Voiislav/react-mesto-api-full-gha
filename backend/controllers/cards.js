@@ -9,7 +9,7 @@ module.exports.getAllCards = (req, res, next) => {
   Card.find().then((cards) => {
     res.json(cards);
   })
-  .catch(next);
+    .catch(next);
 };
 
 module.exports.createCard = (req, res, next) => {
@@ -20,7 +20,13 @@ module.exports.createCard = (req, res, next) => {
     .then((card) => {
       res.status(201).json({ data: card });
     })
-    .catch(next);
+    .catch((err) => {
+      if (err.name === 'Validation Error') {
+        next(new ErrorBadRequest('Переданы некорректные данные'));
+      } else {
+        next(err);
+      }
+    });
 };
 
 module.exports.deleteCard = (req, res, next) => {
@@ -44,8 +50,9 @@ module.exports.deleteCard = (req, res, next) => {
 };
 
 module.exports.addLike = (req, res, next) => {
-  const { cardId } = req.params.cardId;
+  const { cardId } = req.params;
   Card.findByIdAndUpdate(cardId, { $addToSet: { likes: req.user._id } }, { new: true })
+    .orFail(() => new ErrorNotFound('Данных с указанным id не существует'))
     .then((card) => {
       res.json(card);
     })
@@ -58,8 +65,9 @@ module.exports.addLike = (req, res, next) => {
 };
 
 module.exports.removeLike = (req, res, next) => {
-  const { cardId } = req.params.cardId;
+  const { cardId } = req.params;
   Card.findByIdAndUpdate(cardId, { $pull: { likes: req.user._id } }, { new: true })
+    .orFail(() => new ErrorNotFound('Данных с указанным id не существует'))
     .then((card) => {
       res.json(card);
     })
