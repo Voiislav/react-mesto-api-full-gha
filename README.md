@@ -9,8 +9,8 @@
 
 ## Ссылки на проект
 
-IP-адрес x.x.x.x
+IP-адрес 158.160.140.202
 
-Frontend https://...
+Frontend https://voiislavm.nomoredomainsmonster.ru/
 
-Backend https://...
+Backend https://api.voiislavm.nomoredomainsmonster.ru/
