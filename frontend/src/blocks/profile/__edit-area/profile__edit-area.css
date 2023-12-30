@@ -1,0 +1,13 @@
+.profile__edit-area {
+  display: flex;
+  flex-direction: column;
+  max-width: 336px;
+}
+
+@media screen and (max-width: 767px) {
+  .profile__edit-area {
+    justify-content: center;
+    margin-bottom: 36px;
+    max-width: 282px;
+  }
+}
