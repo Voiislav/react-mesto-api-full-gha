@@ -54,6 +54,9 @@ const signupSchema = celebrate({
   [Segments.BODY]: Joi.object().keys({
     email: Joi.string().email().required(),
     password: Joi.string().required(),
+    name: Joi.string().optional(),
+    about: Joi.string().optional(),
+    avatar: Joi.string().uri().optional(),
   }),
 });
 

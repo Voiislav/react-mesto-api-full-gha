@@ -19,7 +19,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "npm run build && scp -r ./build/* voyislavm@158.160.140.202:/home/voyislavm/react-mesto-api-full-gha/frontend"
+    "deploy": "npm run build && scp -r ./build/* voyislavm@158.160.140.202:/var/www/frontend"
   },
   "eslintConfig": {
     "extends": [
