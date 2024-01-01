@@ -16,7 +16,8 @@ export class Api {
   // getting user data from server
   getUserData() {
     return fetch(`${this._baseUrl}/users/me`, {
-      headers: this._headers
+      headers: this._headers,
+      credentials: 'include',
     })
     .then(this._checkResponse)
   }
@@ -25,7 +26,8 @@ export class Api {
   // getting initial cards from server
   getInitialCards() {
     return fetch(`${this._baseUrl}/cards`, {
-      headers: this._headers
+      headers: this._headers,
+      credentials: 'include',
     })
     .then(this._checkResponse)
   }
@@ -39,6 +41,7 @@ export class Api {
     return fetch(`${this._baseUrl}/users/me`, {
       method: 'PATCH',
       headers: this._headers,
+      credentials: 'include',
       body: JSON.stringify({
         name: name,
         about: about,
@@ -55,6 +58,7 @@ export class Api {
     return fetch(`${this._baseUrl}/cards`, {
         method: 'POST',
         headers: this._headers,
+        credentials: 'include',
         body: JSON.stringify({
           name: name,
           link: link,
@@ -68,7 +72,8 @@ export class Api {
   putLike(cardId) {
     return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
         method: 'PUT',
-        headers: this._headers
+        headers: this._headers,
+        credentials: 'include'
       })
       .then(this._checkResponse)
   }
@@ -78,7 +83,8 @@ export class Api {
   deleteLike(cardId) {
     return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
         method: 'DELETE',
-        headers: this._headers
+        headers: this._headers,
+        credentials: 'include'
       })
       .then(this._checkResponse)
   }
@@ -89,6 +95,7 @@ export class Api {
     return fetch(`${this._baseUrl}/users/me/avatar`, {
         method: 'PATCH',
         headers: this._headers,
+        credentials: 'include',
         body: JSON.stringify({
           avatar: avatarLink.link
         })
@@ -101,7 +108,8 @@ export class Api {
   removeCard(cardId) {
     return fetch(`${this._baseUrl}/cards/${cardId}`, {
         method: 'DELETE',
-        headers: this._headers
+        headers: this._headers,
+        credentials: 'include',
       })
       .then(this._checkResponse)
   }
