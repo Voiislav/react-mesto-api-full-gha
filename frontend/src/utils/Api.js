@@ -108,9 +108,8 @@ export class Api {
 }
 
 const api = new Api({
-  baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-76',
+  baseUrl: 'https://api.voiislavm.nomoredomainsmonster.ru',
   headers: {
-    authorization: 'db2e41a4-3852-40e2-9c01-18833418656f',
     'Content-Type': 'application/json'
   }
 });

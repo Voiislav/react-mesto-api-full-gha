@@ -8,6 +8,8 @@ const bodyParser = require('body-parser');
 
 const mongoose = require('mongoose');
 
+const cors = require('cors');
+
 const { createUser, login } = require('./controllers/users');
 
 const auth = require('./middlewares/auth');
@@ -26,6 +28,8 @@ mongoose.connect('mongodb://localhost:27017/mestodb', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
+
+app.use(cors());
 
 app.use(bodyParser.json());
 
