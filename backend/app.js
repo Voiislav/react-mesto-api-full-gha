@@ -29,8 +29,10 @@ mongoose.connect('mongodb://localhost:27017/mestodb', {
   useUnifiedTopology: true,
 });
 
+const allowedOrigins = ['https://voiislavm.nomoredomainsmonster.ru', 'https://api.voiislavm.nomoredomainsmonster.ru'];
+
 const corsOptions = {
-  origin: 'https://voiislavm.nomoredomainsmonster.ru',
+  origin: allowedOrigins,
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true,
   allowedHeaders: 'Origin,X-Requested-With,Content-Type,Accept',
