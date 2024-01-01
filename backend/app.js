@@ -29,7 +29,14 @@ mongoose.connect('mongodb://localhost:27017/mestodb', {
   useUnifiedTopology: true,
 });
 
-app.use(cors());
+const corsOptions = {
+  origin: 'https://voiislavm.nomoredomainsmonster.ru',
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true,
+  allowedHeaders: 'Origin,X-Requested-With,Content-Type,Accept',
+};
+
+app.use(cors(corsOptions));
 
 app.use(bodyParser.json());
 
