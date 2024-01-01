@@ -1,6 +1,6 @@
 import { checkResponse } from "./utils/CheckResponse.js";
 
-export const BASE_URL = "https://auth.nomoreparties.co";
+export const BASE_URL = "https://api.voiislavm.nomoredomainsmonster.ru";
 
 const request = (url, options) => {
   return fetch(url, options).then(checkResponse);
